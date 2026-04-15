@@ -9,11 +9,14 @@ interface EmailDocument extends Document {
   criadoEm: Date;
 }
 
-const emailSchema = new Schema<EmailDocument>({
-  id: { type: String, required: true, unique: true },
-  endereco: { type: String, required: true, unique: true, lowercase: true, trim: true },
-  criadoEm: { type: Date, default: Date.now },
-});
+const emailSchema = new Schema<EmailDocument>(
+  {
+    id: { type: String, required: true, unique: true },
+    endereco: { type: String, required: true, unique: true, lowercase: true, trim: true },
+    criadoEm: { type: Date, default: Date.now },
+  },
+  { collection: "emails" }
+);
 
 emailSchema.index({ criadoEm: -1 });
 emailSchema.index({ endereco: 1 });
