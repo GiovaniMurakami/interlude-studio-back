@@ -3,3 +3,4 @@ build/
 .serverless/
 .env
 *.js.map
+package-lock.json

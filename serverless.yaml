@@ -6,7 +6,7 @@ provider:
   timeout: 29
   environment:
     MONGODB_URI: ${env:MONGODB_URI}
-    CORS_ORIGIN: ${env:CORS_ORIGIN, 'https://interlude.studio'}
+    CORS_ORIGIN: ${env:CORS_ORIGIN, 'https://black-interlude.store'}
 
 build:
   esbuild: false
