@@ -1,0 +1,64 @@
+service: interlude-studio-back
+
+provider:
+  name: aws
+  runtime: nodejs22.x
+  timeout: 29
+  environment:
+    MONGODB_URI: ${env:MONGODB_URI}
+    CORS_ORIGIN: ${env:CORS_ORIGIN, 'https://interlude.studio'}
+
+build:
+  esbuild: false
+
+plugins:
+  - serverless-esbuild
+  # - serverless-offline
+
+custom:
+  esbuild:
+    external:
+      - aws-sdk
+  # serverless-offline:
+  #   httpPort: 4000
+
+package:
+  patterns:
+    - "src/**"
+    - "build/**"
+
+functions:
+  api:
+    handler: src/handler.handler
+    memorySize: 256
+    timeout: 15
+    events:
+      - http:
+          path: /email
+          method: any
+          cors:
+            origins:
+              - ${env:CORS_ORIGIN, 'https://interlude.studio'}
+            methods: [OPTIONS, POST]
+            headers: [Content-Type, X-Amz-Date, Authorization, X-Api-Key, X-Amz-Security-Token]
+      - http:
+          path: /email/{proxy+}
+          method: any
+          cors:
+            origins:
+              - ${env:CORS_ORIGIN, 'https://interlude.studio'}
+            methods: [OPTIONS, POST]
+            headers: [Content-Type, X-Amz-Date, Authorization, X-Api-Key, X-Amz-Security-Token]
+      - http:
+          path: /health
+          method: get
+          cors:
+            origins:
+              - ${env:CORS_ORIGIN, 'https://interlude.studio'}
+            methods: [OPTIONS, GET]
+            headers: [Content-Type]
+
+outputs:
+  emailSubmeter:
+    Description: "Rota para submissão de e-mails"
+    Value: !Sub "https://${self:service}.execute-api.${aws:region}.amazonaws.com/${sls:stage}/email/submeter"
