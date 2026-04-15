@@ -41,16 +41,16 @@ export class SesNotificacaoGateway implements NotificacaoGateway {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ACCESS REGISTERED</title>
 </head>
-<body style="margin:0;padding:0;background-color:#0a0a0a;">
-  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0a0a0a;padding:56px 24px 64px;">
+<body style="margin:0;padding:0;background-color:#000000;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#000000;padding:56px 24px 64px;">
     <tr>
       <td align="center">
         <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;">
 
           <!-- Top label -->
           <tr>
-            <td style="padding-bottom:48px;border-bottom:1px solid #1e1e1e;">
-              <p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:0.22em;color:#444444;text-transform:uppercase;">
+            <td style="padding-bottom:48px;border-bottom:1px solid #333333;">
+              <p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:0.22em;color:#666666;text-transform:uppercase;">
                 // TRANSMISSION RECEIVED
               </p>
             </td>
@@ -59,7 +59,7 @@ export class SesNotificacaoGateway implements NotificacaoGateway {
           <!-- Title -->
           <tr>
             <td style="padding-top:48px;padding-bottom:40px;">
-              <h1 style="margin:0;font-family:Georgia,'Times New Roman',Times,serif;font-size:44px;font-weight:300;font-style:italic;letter-spacing:0.08em;color:#e8e8e8;line-height:1.1;">
+              <h1 style="margin:0;font-family:Georgia,'Times New Roman',Times,serif;font-size:44px;font-weight:300;font-style:italic;letter-spacing:0.08em;color:#ffffff;line-height:1.1;">
                 BLACK INTERLUDE
               </h1>
             </td>
@@ -68,10 +68,10 @@ export class SesNotificacaoGateway implements NotificacaoGateway {
           <!-- Body text -->
           <tr>
             <td style="padding-bottom:40px;">
-              <p style="margin:0 0 20px 0;font-family:Georgia,'Times New Roman',Times,serif;font-size:16px;line-height:1.75;color:#999999;">
+              <p style="margin:0 0 20px 0;font-family:Georgia,'Times New Roman',Times,serif;font-size:16px;line-height:1.75;color:#ffffff;">
                 Your signal has been received.
               </p>
-              <p style="margin:0;font-family:Georgia,'Times New Roman',Times,serif;font-size:16px;line-height:1.75;color:#999999;">
+              <p style="margin:0;font-family:Georgia,'Times New Roman',Times,serif;font-size:16px;line-height:1.75;color:#ffffff;">
                 When the first pieces are ready, you'll know.<br />
                 No noise. No urgency. Just the signal.
               </p>
@@ -81,7 +81,7 @@ export class SesNotificacaoGateway implements NotificacaoGateway {
           <!-- Status block -->
           <tr>
             <td style="padding-bottom:48px;">
-              <p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:0.18em;color:#555555;line-height:2.2;">
+              <p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:0.18em;color:#aaaaaa;line-height:2.2;">
                 ACCESS: CONFIRMED<br />
                 FREQUENCY: IRREGULAR<br />
                 SIGNAL: PRECISE
@@ -91,8 +91,8 @@ export class SesNotificacaoGateway implements NotificacaoGateway {
 
           <!-- Divider + Footer -->
           <tr>
-            <td style="border-top:1px solid #1e1e1e;padding-top:32px;">
-              <p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:10px;letter-spacing:0.14em;color:#333333;line-height:1.9;">
+            <td style="border-top:1px solid #333333;padding-top:32px;">
+              <p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:10px;letter-spacing:0.14em;color:#555555;line-height:1.9;">
                 BLACK INTERLUDE — EST. 2026<br />
                 SYSTEM ONLINE / CONTENT PENDING
               </p>
