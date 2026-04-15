@@ -4,3 +4,4 @@ build/
 .env
 *.js.map
 package-lock.json
+.claude
