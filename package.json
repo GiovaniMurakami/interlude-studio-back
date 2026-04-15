@@ -4,7 +4,7 @@
   "description": "API Lambda para o Interlude Studio",
   "main": "src/app.js",
   "scripts": {
-    "dev": "nodemon --exec ts-node src/iniciarServidor.ts",
+    "dev": "nodemon --exec tsx src/iniciarServidor.ts",
     "lint": "eslint .",
     "build": "node esbuild.config.js",
     "deploy": "npm run deploy:prod",
@@ -16,6 +16,7 @@
   "author": "Giovani Murakami",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-ses": "^3.1030.0",
     "compression": "^1.8.1",
     "cors": "^2.8.6",
     "dotenv": "^16.4.5",
@@ -47,6 +48,7 @@
     "serverless-offline": "^14.5.0",
     "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "^5.6.3"
   }
 }

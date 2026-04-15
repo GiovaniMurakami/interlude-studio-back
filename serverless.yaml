@@ -7,6 +7,15 @@ provider:
   environment:
     MONGODB_URI: ${env:MONGODB_URI}
     CORS_ORIGIN: ${env:CORS_ORIGIN, 'https://black-interlude.store'}
+    SES_FROM_EMAIL: ${env:SES_FROM_EMAIL, 'noreply@black-interlude.store'}
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - ses:SendEmail
+            - ses:SendRawEmail
+          Resource: "arn:aws:ses:us-east-1:*:identity/black-interlude.store"
 
 build:
   esbuild: false

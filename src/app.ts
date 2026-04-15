@@ -1,5 +1,6 @@
 import { ApiExpress } from "./infra/api/express/api.express";
 import { criarRepositorios } from "./composicao/repositorios";
+import { criarGateways } from "./composicao/gateways";
 import { criarCasosDeUso } from "./composicao/casos";
 import { criarRotas } from "./composicao/rotas";
 import dotenv from "dotenv";
@@ -15,7 +16,8 @@ for (const envVar of requiredEnvVars) {
 
 export function app() {
   const repos = criarRepositorios();
-  const casos = criarCasosDeUso(repos);
+  const gateways = criarGateways();
+  const casos = criarCasosDeUso(repos, gateways);
   const rotas = criarRotas(casos);
 
   const port = Number(process.env.PORT) || 0;

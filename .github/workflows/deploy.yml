@@ -28,6 +28,7 @@ jobs:
       AWS_REGION: us-east-1
       MONGODB_URI: ${{ secrets.MONGODB_URI }}
       CORS_ORIGIN: ${{ secrets.CORS_ORIGIN }}
+      SES_FROM_EMAIL: ${{ secrets.SES_FROM_EMAIL }}
 
     steps:
       - name: Checkout

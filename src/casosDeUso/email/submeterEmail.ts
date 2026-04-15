@@ -1,5 +1,6 @@
 import { Email } from "../../dominio/entidade/email";
 import { EmailGateway } from "../../dominio/gateway/emailGateway";
+import { NotificacaoGateway } from "../../dominio/gateway/notificacaoGateway";
 import { CasoDeUso } from "../casoDeUso";
 import { ErroPersonalizado } from "../../helpers/error/ErroPersonalizado";
 import { StatusErro } from "../../helpers/error/statusErro";
@@ -15,10 +16,13 @@ export type SubmeterEmailOutputDto = {
 };
 
 export class SubmeterEmail implements CasoDeUso<SubmeterEmailInputDto, SubmeterEmailOutputDto> {
-  private constructor(private readonly emailGateway: EmailGateway) {}
+  private constructor(
+    private readonly emailGateway: EmailGateway,
+    private readonly notificacaoGateway: NotificacaoGateway,
+  ) {}
 
-  public static criar(emailGateway: EmailGateway): SubmeterEmail {
-    return new SubmeterEmail(emailGateway);
+  public static criar(emailGateway: EmailGateway, notificacaoGateway: NotificacaoGateway): SubmeterEmail {
+    return new SubmeterEmail(emailGateway, notificacaoGateway);
   }
 
   public async executar(input: SubmeterEmailInputDto): Promise<SubmeterEmailOutputDto> {
@@ -34,6 +38,7 @@ export class SubmeterEmail implements CasoDeUso<SubmeterEmailInputDto, SubmeterE
 
     const email = Email.criar({ endereco: enderecoNormalizado });
     await this.emailGateway.salvar(email);
+    await this.notificacaoGateway.enviarConfirmacao(enderecoNormalizado);
 
     return {
       id: email.id,
